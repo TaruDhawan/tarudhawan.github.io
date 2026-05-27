@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import ResumeDrawer from './ResumeDrawer'
 
 const links = [
   { label: 'How I work', href: '#how-i-work' },
@@ -78,6 +79,8 @@ export default function Nav() {
         gap: '0.375rem',
         position: 'relative',
       }}>
+        <ResumeDrawer />
+
         {links.map(link => {
           const id = link.href.slice(1)
           const isActive = active === id

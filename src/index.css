@@ -1,36 +1,63 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap');
 
-@theme {
-  --color-background: #faf7f2;
-  --color-foreground: #2c2420;
-  --color-primary: #6b2737;
-  --color-primary-foreground: #ffffff;
-  --color-secondary: #c9973a;
-  --color-secondary-foreground: #1c1008;
-  --color-muted: #f5f0e8;
-  --color-muted-foreground: #8c7b6b;
-  --color-card: #fffdfb;
-  --color-card-foreground: #2c2420;
-  --color-border: #e8e0d5;
-  --color-heading: #1c1008;
-
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+/* ── Light theme (default) ─────────────────────────────── */
+:root {
+  --bg:             #faf7f2;
+  --nav-bg:         rgba(250,247,242,0.95);
+  --fg:             #2c2420;
+  --heading:        #1c1008;
+  --primary:        #6b2737;
+  --primary-fg:     #ffffff;
+  --accent:         #c9973a;
+  --muted:          #f5f0e8;
+  --muted-light:    rgba(245,240,232,0.3);
+  --muted-tile:     rgba(245,240,232,0.5);
+  --muted-fg:       #8c7b6b;
+  --card:           #fffdfb;
+  --border:         #e8e0d5;
+  --border-alpha:   rgba(232,224,213,0.5);
+  --primary-subtle: rgba(107,39,55,0.08);
+  --primary-tint:   rgba(107,39,55,0.10);
+  --shadow:         0 1px 3px rgba(44,36,32,0.08);
+  --shadow-hover:   0 4px 12px rgba(44,36,32,0.14);
+  --shadow-nav:     0 2px 8px rgba(44,36,32,0.06);
+  --shadow-photo:   0 8px 24px rgba(44,36,32,0.12);
 }
 
-* {
-  box-sizing: border-box;
+/* ── Dark theme ────────────────────────────────────────── */
+[data-theme="dark"] {
+  --bg:             #1a1410;
+  --nav-bg:         rgba(22,17,13,0.96);
+  --fg:             #d4c9be;
+  --heading:        #f0e8de;
+  --primary:        #c4697a;
+  --primary-fg:     #ffffff;
+  --accent:         #c9973a;
+  --muted:          #231d17;
+  --muted-light:    rgba(35,29,23,0.6);
+  --muted-tile:     rgba(35,29,23,0.8);
+  --muted-fg:       #8a7a6c;
+  --card:           #241e18;
+  --border:         #3a2e24;
+  --border-alpha:   rgba(58,46,36,0.6);
+  --primary-subtle: rgba(196,105,122,0.12);
+  --primary-tint:   rgba(196,105,122,0.16);
+  --shadow:         0 1px 4px rgba(0,0,0,0.35);
+  --shadow-hover:   0 4px 16px rgba(0,0,0,0.55);
+  --shadow-nav:     0 2px 8px rgba(0,0,0,0.4);
+  --shadow-photo:   0 8px 24px rgba(0,0,0,0.45);
 }
 
-html {
-  scroll-behavior: smooth;
-}
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: var(--font-sans);
-  background-color: #faf7f2;
-  color: #2c2420;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s, color 0.25s;
 }

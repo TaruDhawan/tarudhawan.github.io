@@ -3,13 +3,11 @@ export default function Footer() {
     <footer style={{
       padding: '2rem 1.5rem',
       textAlign: 'center',
-      borderTop: '1px solid #e8e0d5',
-      backgroundColor: '#faf7f2',
+      borderTop: '1px solid var(--border)',
+      backgroundColor: 'var(--bg)',
+      transition: 'background-color 0.25s',
     }}>
-      <p style={{
-        fontSize: '0.875rem',
-        color: '#8c7b6b',
-      }}>
+      <p style={{ fontSize: '0.875rem', color: 'var(--muted-fg)' }}>
         © 2026 Taru Dhawan. Crafted with intention.
       </p>
     </footer>

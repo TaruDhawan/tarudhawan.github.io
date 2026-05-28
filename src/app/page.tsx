@@ -1,5 +1,6 @@
 import Nav from '@/components/Nav'
 import Hero from '@/components/Hero'
+import OpenTo from '@/components/OpenTo'
 import HowIWork from '@/components/HowIWork'
 import AboutMe from '@/components/AboutMe'
 import CareerHighlights from '@/components/CareerHighlights'
@@ -13,6 +14,7 @@ export default function Page() {
       <Nav />
       <main>
         <Hero />
+        <OpenTo />
         <HowIWork />
         <AboutMe />
         <CareerHighlights />

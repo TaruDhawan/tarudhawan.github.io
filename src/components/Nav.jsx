@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useEffect } from 'react'
 import ResumeDrawer from './ResumeDrawer'
 
@@ -35,6 +37,7 @@ function MoonIcon() {
 export default function Nav() {
   const [active, setActive] = useState('how-i-work')
   const [dark, setDark] = useState(() => {
+    if (typeof window === 'undefined') return false
     const stored = localStorage.getItem('theme')
     if (stored) return stored === 'dark'
     return window.matchMedia('(prefers-color-scheme: dark)').matches

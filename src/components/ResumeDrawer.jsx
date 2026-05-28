@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 
@@ -138,6 +140,9 @@ function ActionBtn({ href, download, target, onClick, children }) {
 export default function ResumeDrawer() {
   const [isOpen, setIsOpen] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => { setMounted(true) }, [])
 
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') setIsOpen(false) }
@@ -199,7 +204,7 @@ export default function ResumeDrawer() {
         View Resume
       </button>
 
-      {createPortal(
+      {mounted && createPortal(
         <>
           {/* ── Backdrop ─────────────────────────────── */}
           <div
@@ -252,7 +257,7 @@ export default function ResumeDrawer() {
                 Latest Resume
               </p>
               <h2 style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontFamily: "var(--font-cormorant), Georgia, serif",
                 fontSize: '1.75rem',
                 fontWeight: 700,
                 color: 'var(--heading)',
@@ -338,7 +343,7 @@ export default function ResumeDrawer() {
               <SparkleIcon />
             </div>
             <span style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontFamily: "var(--font-cormorant), Georgia, serif",
               fontSize: '1.0625rem',
               fontWeight: 600,
               color: 'var(--heading)',
@@ -374,7 +379,7 @@ export default function ResumeDrawer() {
             </p>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <span style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontFamily: "var(--font-cormorant), Georgia, serif",
                 fontSize: '1.0625rem',
                 fontWeight: 600,
                 color: 'var(--heading)',

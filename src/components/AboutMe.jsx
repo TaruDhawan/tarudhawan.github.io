@@ -1,3 +1,5 @@
+'use client'
+
 const rechargeItems = [
   { icon: '🥾', label: 'Hiking', desc: 'Where my best non-linear thinking happens.' },
   { icon: '🏡', label: 'Interior Design', desc: "Every room is a product problem. Who uses it, what do they need, what's the delight layer." },
@@ -10,12 +12,12 @@ const s = {
   container: { maxWidth: '64rem', margin: '0 auto' },
   headingRow: { display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '3rem' },
   bar: { width: '4px', height: '3rem', backgroundColor: 'var(--accent)', borderRadius: '9999px', flexShrink: 0 },
-  heading: { fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: 'var(--heading)', lineHeight: 1.1 },
+  heading: { fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: 'var(--heading)', lineHeight: 1.1 },
   card: { backgroundColor: 'var(--card)', borderRadius: '1rem', boxShadow: 'var(--shadow)', border: '1px solid var(--border-alpha)', overflow: 'hidden', display: 'flex', flexDirection: 'row', flexWrap: 'wrap' },
   left: { flex: 1, minWidth: '280px', padding: '2.5rem' },
   block: { padding: '2rem 0', borderBottom: '1px solid var(--border)' },
   blockLast: { paddingTop: '2rem' },
-  blockHeading: { fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '1.5rem', fontWeight: 600, color: 'var(--heading)', marginBottom: '1rem' },
+  blockHeading: { fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: '1.5rem', fontWeight: 600, color: 'var(--heading)', marginBottom: '1rem' },
   locationLine: { display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--primary)', fontSize: '0.875rem', marginBottom: '0.75rem', fontWeight: 500 },
   bodyText: { color: 'var(--fg)', lineHeight: 1.75, fontSize: '0.9375rem' },
   careerBadges: { display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' },

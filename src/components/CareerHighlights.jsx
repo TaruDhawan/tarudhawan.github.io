@@ -1,3 +1,5 @@
+'use client'
+
 const highlights = [
   { title: 'Built an AI-Powered Live Site System from Scratch', body: 'Designed and shipped a multi-agent AI system that transformed how engineering teams detect, respond to, and resolve live site incidents across Office Product Group. Built not as a pilot but as org-wide infrastructure adopted across multiple engineering teams.', badge: 'Org-wide adoption' },
   { title: 'Turned Cost Governance into a Strategic Program', body: 'Stood up a first-of-its-kind COGS governance framework across OPG, governing a $400M portfolio and delivering $40M in confirmed savings. Unified engineering and finance reporting where no common language previously existed.', badge: '$40M saved' },
@@ -12,10 +14,10 @@ const s = {
   container: { maxWidth: '64rem', margin: '0 auto' },
   headingRow: { display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '3rem' },
   bar: { width: '4px', height: '3rem', backgroundColor: 'var(--accent)', borderRadius: '9999px', flexShrink: 0 },
-  heading: { fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: 'var(--heading)', lineHeight: 1.1 },
+  heading: { fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: 'var(--heading)', lineHeight: 1.1 },
   grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' },
   card: { backgroundColor: 'var(--card)', borderRadius: '0.75rem', padding: '1.5rem', boxShadow: 'var(--shadow)', border: '1px solid var(--border-alpha)', display: 'flex', flexDirection: 'column', transition: 'box-shadow 0.3s' },
-  cardTitle: { fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '1.25rem', fontWeight: 600, color: 'var(--heading)', marginBottom: '0.75rem', lineHeight: 1.3 },
+  cardTitle: { fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: '1.25rem', fontWeight: 600, color: 'var(--heading)', marginBottom: '0.75rem', lineHeight: 1.3 },
   cardBody: { fontSize: '0.875rem', color: 'var(--fg)', lineHeight: 1.75, flex: 1, marginBottom: '1.25rem' },
   badge: { display: 'inline-flex', alignSelf: 'flex-start', padding: '0.375rem 1rem', borderRadius: '9999px', backgroundColor: 'var(--primary-subtle)', color: 'var(--primary)', fontSize: '0.8125rem', fontWeight: 500 },
 }

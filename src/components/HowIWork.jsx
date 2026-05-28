@@ -1,3 +1,5 @@
+'use client'
+
 const principles = [
   { title: 'I build the function, not just the program', body: "Most PMs manage work. I build the scaffolding that makes work manageable at scale. I've stood up TPM practices from scratch, created governance frameworks where none existed, and handed orgs infrastructure they didn't know they needed until it was gone." },
   { title: "AI isn't a strategy — it's my daily toolkit", body: "I don't just talk about AI transformation; I've shipped it. From multi-agent live site systems to automated reporting pipelines, I build AI solutions that make teams faster — not just informed." },
@@ -15,10 +17,10 @@ const s = {
   container: { maxWidth: '64rem', margin: '0 auto' },
   headingRow: { display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '3rem' },
   bar: { width: '4px', height: '3rem', backgroundColor: 'var(--accent)', borderRadius: '9999px', flexShrink: 0 },
-  heading: { fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: 'var(--heading)', lineHeight: 1.1 },
+  heading: { fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: 'var(--heading)', lineHeight: 1.1 },
   grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' },
   card: { backgroundColor: 'var(--card)', borderRadius: '0.75rem', padding: '1.5rem', boxShadow: 'var(--shadow)', border: '1px solid var(--border-alpha)', transition: 'box-shadow 0.3s' },
-  cardTitle: { fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '1.25rem', fontWeight: 600, color: 'var(--heading)', marginBottom: '0.75rem', lineHeight: 1.3 },
+  cardTitle: { fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: '1.25rem', fontWeight: 600, color: 'var(--heading)', marginBottom: '0.75rem', lineHeight: 1.3 },
   cardBody: { fontSize: '0.875rem', color: 'var(--fg)', lineHeight: 1.75 },
 }
 

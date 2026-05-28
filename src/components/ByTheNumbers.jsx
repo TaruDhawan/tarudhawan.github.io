@@ -15,14 +15,14 @@ const s = {
   container: { maxWidth: '64rem', margin: '0 auto' },
   headingRow: { display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '3rem' },
   bar: { width: '4px', height: '3rem', backgroundColor: 'var(--accent)', borderRadius: '9999px', flexShrink: 0 },
-  heading: { fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: 'var(--heading)', lineHeight: 1.1 },
+  heading: { fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: 'var(--heading)', lineHeight: 1.1 },
   grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1.25rem', marginBottom: '2rem' },
   card: { backgroundColor: 'var(--card)', borderRadius: '0.75rem', padding: '1.25rem 1.5rem', boxShadow: 'var(--shadow)', border: '1px solid var(--border-alpha)' },
   statLabel: { fontSize: '0.6875rem', fontWeight: 600, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted-fg)', marginBottom: '0.5rem' },
-  statValue: { fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '2.5rem', fontWeight: 700, color: 'var(--primary)', lineHeight: 1, marginBottom: '0.5rem' },
+  statValue: { fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: '2.5rem', fontWeight: 700, color: 'var(--primary)', lineHeight: 1, marginBottom: '0.5rem' },
   statDesc: { fontSize: '0.8125rem', color: 'var(--fg)', lineHeight: 1.5 },
   quoteCard: { backgroundColor: 'var(--card)', borderRadius: '0.75rem', padding: '2rem', boxShadow: 'var(--shadow)', border: '1px solid var(--border-alpha)', textAlign: 'center' },
-  quote: { fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '1.25rem', fontStyle: 'italic', color: 'var(--primary)', lineHeight: 1.6 },
+  quote: { fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: '1.25rem', fontStyle: 'italic', color: 'var(--primary)', lineHeight: 1.6 },
 }
 
 export default function ByTheNumbers() {

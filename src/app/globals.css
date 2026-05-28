@@ -48,6 +48,60 @@
   --shadow-photo:   0 8px 24px rgba(0,0,0,0.45);
 }
 
+/* ── Photo centering on mobile ──────────────────────────── */
+@media (max-width: 767px) {
+  .hero-photo-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .hero-container {
+    gap: 1.5rem !important;
+  }
+  .about-photo-wrap {
+    width: 100%;
+  }
+}
+
+/* ── Skip link (keyboard / screen-reader accessibility) ──── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1.25rem;
+  background: var(--primary);
+  color: var(--primary-fg);
+  border-radius: 0 0 0.5rem 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: top 0.2s;
+  white-space: nowrap;
+}
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ── Focus visible — remove default outline, add custom ──── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }

@@ -8,29 +8,29 @@ const rechargeItems = [
 ]
 
 const s = {
-  section: { padding: '5rem 1.5rem', backgroundColor: 'var(--muted-light)' },
+  section: { padding: '3rem 1.5rem', backgroundColor: 'var(--muted-light)' },
   container: { maxWidth: '64rem', margin: '0 auto' },
-  headingRow: { display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '3rem' },
+  headingRow: { display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.75rem' },
   bar: { width: '4px', height: '3rem', backgroundColor: 'var(--accent)', borderRadius: '9999px', flexShrink: 0 },
   heading: { fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: 'var(--heading)', lineHeight: 1.1 },
   card: { backgroundColor: 'var(--card)', borderRadius: '1rem', boxShadow: 'var(--shadow)', border: '1px solid var(--border-alpha)', overflow: 'hidden', display: 'flex', flexDirection: 'row', flexWrap: 'wrap' },
-  left: { flex: 1, minWidth: '280px', padding: '2.5rem' },
-  block: { padding: '2rem 0', borderBottom: '1px solid var(--border)' },
-  blockLast: { paddingTop: '2rem' },
+  left: { flex: 1, minWidth: '280px', padding: '2rem' },
+  block: { padding: '1.5rem 0', borderBottom: '1px solid var(--border)' },
+  blockLast: { paddingTop: '1.5rem' },
   blockHeading: { fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: '1.5rem', fontWeight: 600, color: 'var(--heading)', marginBottom: '1rem' },
   locationLine: { display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--primary)', fontSize: '0.875rem', marginBottom: '0.75rem', fontWeight: 500 },
   bodyText: { color: 'var(--fg)', lineHeight: 1.75, fontSize: '0.9375rem' },
   careerBadges: { display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' },
-  badge: { display: 'inline-flex', alignItems: 'center', padding: '0.375rem 1rem', borderRadius: '9999px', backgroundColor: 'var(--muted)', color: 'var(--fg)', fontSize: '0.875rem', fontWeight: 500 },
+  badge: { display: 'inline-flex', alignItems: 'center', padding: '0.375rem 1rem', borderRadius: '9999px', backgroundColor: 'var(--border)', color: 'var(--fg)', fontSize: '0.875rem', fontWeight: 600 },
   badgeActive: { display: 'inline-flex', alignItems: 'center', padding: '0.375rem 1rem', borderRadius: '9999px', backgroundColor: 'var(--primary-tint)', color: 'var(--primary)', fontSize: '0.875rem', fontWeight: 500 },
   arrow: { color: 'var(--muted-fg)', fontSize: '1rem' },
-  rechargeGrid: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' },
-  rechargeItem: { padding: '0.75rem 1rem', backgroundColor: 'var(--muted-tile)', borderRadius: '0.5rem' },
+  rechargeGrid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: '0.75rem' },
+  rechargeItem: { padding: '0.75rem 1rem', backgroundColor: 'var(--card)', borderRadius: '0.5rem', border: '1px solid var(--border)', boxShadow: 'var(--shadow)' },
   rechargeTop: { display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' },
   rechargeIcon: { fontSize: '1.125rem' },
   rechargeLabel: { fontWeight: 600, color: 'var(--heading)', fontSize: '0.875rem' },
   rechargeDesc: { fontSize: '0.75rem', color: 'var(--fg)', lineHeight: 1.5 },
-  right: { flexShrink: 0, padding: '2.5rem', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' },
+  right: { flexShrink: 0, padding: '2rem', display: 'flex', alignItems: 'flex-start', justifyContent: 'center' },
   photo: { width: '200px', height: '280px', objectFit: 'cover', objectPosition: 'top', borderRadius: '0.75rem', boxShadow: 'var(--shadow-photo)' },
 }
 
@@ -44,7 +44,7 @@ export default function AboutMe() {
         </div>
         <div style={s.card}>
           <div style={s.left}>
-            <div style={{ paddingBottom: '2rem', borderBottom: '1px solid var(--border)' }}>
+            <div style={{ paddingBottom: '1.5rem', borderBottom: '1px solid var(--border)' }}>
               <h3 style={s.blockHeading}>Origins</h3>
               <p style={s.locationLine}><span>📍</span>Greater Seattle Area · B.E. Computer Science &amp; Engineering + MBA</p>
               <p style={s.bodyText}>Started in engineering, pivoted to technical program management, and never looked back. That technical foundation is still my edge — it's what lets me earn credibility in rooms full of engineers and speak plainly in rooms full of executives.</p>
@@ -77,7 +77,7 @@ export default function AboutMe() {
               </div>
             </div>
           </div>
-          <div style={s.right}>
+          <div style={s.right} className="about-photo-wrap">
             <img
               src="https://tarudhawan.netlify.app/images/taru-profile.png"
               alt="Taru Dhawan"

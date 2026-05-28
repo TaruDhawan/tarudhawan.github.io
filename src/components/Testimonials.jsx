@@ -107,6 +107,7 @@ function FeaturedCard({ t }) {
       href={LINKEDIN_URL}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={`Read ${t.name}'s LinkedIn endorsement of Taru Dhawan`}
       style={{
         display: 'flex',
         flexDirection: 'column',
@@ -206,6 +207,7 @@ function EarlierCard({ t }) {
       href={LINKEDIN_URL}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={`Read ${t.name}'s LinkedIn endorsement of Taru Dhawan`}
       style={{
         display: 'flex',
         flexDirection: 'column',
@@ -266,7 +268,7 @@ function EarlierCard({ t }) {
 /* ── Section ──────────────────────────────────────────────── */
 export default function Testimonials() {
   return (
-    <section id="testimonials" style={{ padding: '4rem 1.5rem 5rem', backgroundColor: 'var(--bg)' }}>
+    <section id="testimonials" style={{ padding: '2.5rem 1.5rem 3rem', backgroundColor: 'var(--bg)' }}>
       <div style={{ maxWidth: '64rem', margin: '0 auto' }}>
 
         {/* Section heading */}
@@ -283,7 +285,7 @@ export default function Testimonials() {
             Endorsements
           </h2>
         </div>
-        <p style={{ fontSize: '0.9375rem', color: 'var(--muted-fg)', marginBottom: '2.5rem', marginLeft: 'calc(4px + 1rem)' }}>
+        <p style={{ fontSize: '0.9375rem', color: 'var(--muted-fg)', marginBottom: '1.5rem', marginLeft: 'calc(4px + 1rem)' }}>
           What colleagues and managers say, in their own words.
         </p>
 
@@ -292,7 +294,7 @@ export default function Testimonials() {
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
           gap: '1.5rem',
-          marginBottom: '2.5rem',
+          marginBottom: '1.75rem',
         }}>
           {featured.map((t) => <FeaturedCard key={t.name} t={t} />)}
         </div>
@@ -318,7 +320,7 @@ export default function Testimonials() {
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
           gap: '1.25rem',
-          marginBottom: '2.5rem',
+          marginBottom: '1.75rem',
         }}>
           {earlier.map((t) => <EarlierCard key={t.name} t={t} />)}
         </div>

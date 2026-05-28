@@ -12,7 +12,7 @@ export default function Page() {
   return (
     <div style={{ backgroundColor: 'var(--bg)', minHeight: '100vh' }}>
       <Nav />
-      <main>
+      <main id="main-content">
         <Hero />
         <OpenTo />
         <HowIWork />

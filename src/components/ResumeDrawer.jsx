@@ -144,6 +144,13 @@ export default function ResumeDrawer() {
 
   useEffect(() => { setMounted(true) }, [])
 
+  // Listen for open event dispatched by Hero button
+  useEffect(() => {
+    const onOpen = () => setIsOpen(true)
+    window.addEventListener('open-resume-drawer', onOpen)
+    return () => window.removeEventListener('open-resume-drawer', onOpen)
+  }, [])
+
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') setIsOpen(false) }
     window.addEventListener('keydown', onKey)
@@ -171,39 +178,6 @@ export default function ResumeDrawer() {
 
   return (
     <>
-      {/* ── Trigger button ─────────────────────────────── */}
-      <button
-        onClick={() => setIsOpen(true)}
-        style={{
-          position: 'absolute',
-          left: '1.5rem',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.4rem',
-          padding: '0.4rem 0.875rem',
-          fontSize: '0.8rem',
-          fontWeight: 500,
-          fontFamily: 'inherit',
-          borderRadius: '9999px',
-          border: '1px solid var(--border)',
-          backgroundColor: 'var(--card)',
-          color: 'var(--muted-fg)',
-          cursor: 'pointer',
-          transition: 'all 0.2s',
-        }}
-        onMouseEnter={e => {
-          e.currentTarget.style.color = 'var(--primary)'
-          e.currentTarget.style.borderColor = 'var(--primary)'
-        }}
-        onMouseLeave={e => {
-          e.currentTarget.style.color = 'var(--muted-fg)'
-          e.currentTarget.style.borderColor = 'var(--border)'
-        }}
-      >
-        <FileIcon />
-        View Resume
-      </button>
-
       {mounted && createPortal(
         <>
           {/* ── Backdrop ─────────────────────────────── */}

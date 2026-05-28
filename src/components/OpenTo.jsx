@@ -58,7 +58,8 @@ export default function OpenTo() {
       backgroundColor: 'var(--primary-subtle)',
       borderTop: '1px solid var(--border)',
       borderBottom: '1px solid var(--border)',
-    }}>
+    }}
+    aria-label="Availability and target roles">
       <div style={{
         maxWidth: '64rem',
         margin: '0 auto',

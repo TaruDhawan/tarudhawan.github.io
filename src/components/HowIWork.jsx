@@ -13,9 +13,9 @@ const principles = [
 ]
 
 const s = {
-  section: { padding: '4rem 1.5rem' },
+  section: { padding: '2.5rem 1.5rem' },
   container: { maxWidth: '64rem', margin: '0 auto' },
-  headingRow: { display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '3rem' },
+  headingRow: { display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.75rem' },
   bar: { width: '4px', height: '3rem', backgroundColor: 'var(--accent)', borderRadius: '9999px', flexShrink: 0 },
   heading: { fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: 'var(--heading)', lineHeight: 1.1 },
   grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' },

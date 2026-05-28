@@ -1,5 +1,7 @@
 'use client'
 
+import RevealGrid from './RevealGrid'
+
 const highlights = [
   { title: 'Built an AI-Powered Live Site System from Scratch', body: 'Designed and shipped a multi-agent AI system that transformed how engineering teams detect, respond to, and resolve live site incidents across Office Product Group. Built not as a pilot but as org-wide infrastructure adopted across multiple engineering teams.', badge: 'Org-wide adoption' },
   { title: 'Turned Cost Governance into a Strategic Program', body: 'Stood up a first-of-its-kind COGS governance framework across OPG, governing a $400M portfolio and delivering $40M in confirmed savings. Unified engineering and finance reporting where no common language previously existed.', badge: '$40M saved' },
@@ -30,11 +32,12 @@ export default function CareerHighlights() {
           <div style={s.bar} />
           <h2 style={s.heading}>Career Highlights</h2>
         </div>
-        <div style={s.grid}>
+        <RevealGrid style={s.grid}>
           {highlights.map((h, i) => (
             <div
               key={i}
-              style={s.card}
+              className="reveal-card"
+              style={{ ...s.card, transitionDelay: `${i * 60}ms` }}
               onMouseEnter={e => e.currentTarget.style.boxShadow = 'var(--shadow-hover)'}
               onMouseLeave={e => e.currentTarget.style.boxShadow = 'var(--shadow)'}
             >
@@ -43,7 +46,7 @@ export default function CareerHighlights() {
               <span style={s.badge}>{h.badge}</span>
             </div>
           ))}
-        </div>
+        </RevealGrid>
       </div>
     </section>
   )

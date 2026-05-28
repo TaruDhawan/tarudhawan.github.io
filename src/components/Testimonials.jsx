@@ -1,5 +1,7 @@
 'use client'
 
+import RevealGrid from './RevealGrid'
+
 const LINKEDIN_URL =
   'https://www.linkedin.com/in/tarudhawan/details/recommendations/?detailScreenTabIndex=0'
 
@@ -101,13 +103,14 @@ function Avatar({ initials, accent }) {
 }
 
 /* ── Featured card (large) ────────────────────────────────── */
-function FeaturedCard({ t }) {
+function FeaturedCard({ t, revealIndex = 0 }) {
   return (
     <a
       href={LINKEDIN_URL}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Read ${t.name}'s LinkedIn endorsement of Taru Dhawan`}
+      className="reveal-card"
       style={{
         display: 'flex',
         flexDirection: 'column',
@@ -120,6 +123,7 @@ function FeaturedCard({ t }) {
         color: 'inherit',
         transition: 'box-shadow 0.25s, transform 0.25s',
         cursor: 'pointer',
+        transitionDelay: `${revealIndex * 80}ms`,
       }}
       onMouseEnter={e => {
         e.currentTarget.style.boxShadow = 'var(--shadow-hover)'
@@ -201,13 +205,14 @@ function FeaturedCard({ t }) {
 }
 
 /* ── Earlier card (smaller, dashed) ──────────────────────── */
-function EarlierCard({ t }) {
+function EarlierCard({ t, revealIndex = 0 }) {
   return (
     <a
       href={LINKEDIN_URL}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Read ${t.name}'s LinkedIn endorsement of Taru Dhawan`}
+      className="reveal-card"
       style={{
         display: 'flex',
         flexDirection: 'column',
@@ -220,6 +225,7 @@ function EarlierCard({ t }) {
         color: 'inherit',
         transition: 'box-shadow 0.25s',
         cursor: 'pointer',
+        transitionDelay: `${revealIndex * 80}ms`,
       }}
       onMouseEnter={e => { e.currentTarget.style.boxShadow = 'var(--shadow-hover)' }}
       onMouseLeave={e => { e.currentTarget.style.boxShadow = 'var(--shadow)' }}
@@ -290,14 +296,14 @@ export default function Testimonials() {
         </p>
 
         {/* Featured grid */}
-        <div style={{
+        <RevealGrid style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
           gap: '1.5rem',
           marginBottom: '1.75rem',
         }}>
-          {featured.map((t) => <FeaturedCard key={t.name} t={t} />)}
-        </div>
+          {featured.map((t, i) => <FeaturedCard key={t.name} t={t} revealIndex={i} />)}
+        </RevealGrid>
 
         {/* Earlier endorsements label */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.25rem' }}>
@@ -316,14 +322,14 @@ export default function Testimonials() {
         </div>
 
         {/* Earlier grid */}
-        <div style={{
+        <RevealGrid style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
           gap: '1.25rem',
           marginBottom: '1.75rem',
         }}>
-          {earlier.map((t) => <EarlierCard key={t.name} t={t} />)}
-        </div>
+          {earlier.map((t, i) => <EarlierCard key={t.name} t={t} revealIndex={i} />)}
+        </RevealGrid>
 
         {/* CTA */}
         <div style={{ textAlign: 'center' }}>

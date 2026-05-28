@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 function FileIcon() {
   return (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
@@ -79,11 +81,13 @@ export default function Hero() {
           </div>
         </div>
         <div style={s.photoWrap} className="hero-photo-wrap">
-          <img
-            src="https://tarudhawan.netlify.app/images/taru-profile.png"
-            alt="Taru Dhawan"
+          <Image
+            src="/taru-profile.png"
+            alt="Taru Dhawan — Principal Technical Program Manager at Microsoft"
+            width={240}
+            height={240}
+            priority
             style={s.photo}
-            onError={e => { e.target.style.backgroundColor = 'var(--border)'; e.target.removeAttribute('src') }}
           />
         </div>
       </div>

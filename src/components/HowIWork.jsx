@@ -1,5 +1,7 @@
 'use client'
 
+import RevealGrid from './RevealGrid'
+
 const principles = [
   { title: 'I build the function, not just the program', body: "Most PMs manage work. I build the scaffolding that makes work manageable at scale. I've stood up TPM practices from scratch, created governance frameworks where none existed, and handed orgs infrastructure they didn't know they needed until it was gone." },
   { title: "AI isn't a strategy — it's my daily toolkit", body: "I don't just talk about AI transformation; I've shipped it. From multi-agent live site systems to automated reporting pipelines, I build AI solutions that make teams faster — not just informed." },
@@ -32,11 +34,12 @@ export default function HowIWork() {
           <div style={s.bar} />
           <h2 style={s.heading}>How I Work</h2>
         </div>
-        <div style={s.grid}>
+        <RevealGrid style={s.grid}>
           {principles.map((p, i) => (
             <div
               key={i}
-              style={s.card}
+              className="reveal-card"
+              style={{ ...s.card, transitionDelay: `${i * 60}ms` }}
               onMouseEnter={e => e.currentTarget.style.boxShadow = 'var(--shadow-hover)'}
               onMouseLeave={e => e.currentTarget.style.boxShadow = 'var(--shadow)'}
             >
@@ -44,7 +47,7 @@ export default function HowIWork() {
               <p style={s.cardBody}>{p.body}</p>
             </div>
           ))}
-        </div>
+        </RevealGrid>
       </div>
     </section>
   )

@@ -1,5 +1,7 @@
 'use client'
 
+import Image from 'next/image'
+
 const rechargeItems = [
   { icon: '🥾', label: 'Hiking', desc: 'Where my best non-linear thinking happens.' },
   { icon: '🏡', label: 'Interior Design', desc: "Every room is a product problem. Who uses it, what do they need, what's the delight layer." },
@@ -78,11 +80,12 @@ export default function AboutMe() {
             </div>
           </div>
           <div style={s.right} className="about-photo-wrap">
-            <img
-              src="https://tarudhawan.netlify.app/images/taru-profile.png"
+            <Image
+              src="/taru-profile.png"
               alt="Taru Dhawan"
+              width={200}
+              height={280}
               style={s.photo}
-              onError={e => { e.target.style.backgroundColor = 'var(--border)'; e.target.removeAttribute('src') }}
             />
           </div>
         </div>

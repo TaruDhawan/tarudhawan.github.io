@@ -8,6 +8,7 @@ const links = [
   { label: 'About me', href: '#about-me' },
   { label: 'Career Highlights', href: '#career-highlights' },
   { label: 'By the numbers', href: '#by-the-numbers' },
+  { label: 'Endorsements', href: '#testimonials' },
 ]
 
 function SunIcon() {
@@ -36,12 +37,15 @@ function MoonIcon() {
 
 export default function Nav() {
   const [active, setActive] = useState('how-i-work')
-  const [dark, setDark] = useState(() => {
-    if (typeof window === 'undefined') return false
+  const [dark, setDark] = useState(false)
+
+  // Read persisted theme after mount to avoid SSR/client hydration mismatch
+  useEffect(() => {
     const stored = localStorage.getItem('theme')
-    if (stored) return stored === 'dark'
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-  })
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isDark = stored ? stored === 'dark' : prefersDark
+    setDark(isDark)
+  }, [])
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light')
@@ -110,6 +114,7 @@ export default function Nav() {
         })}
 
         <button
+          suppressHydrationWarning
           onClick={() => setDark(d => !d)}
           title={dark ? 'Switch to light mode' : 'Switch to dark mode'}
           style={{

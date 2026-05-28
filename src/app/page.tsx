@@ -4,6 +4,7 @@ import HowIWork from '@/components/HowIWork'
 import AboutMe from '@/components/AboutMe'
 import CareerHighlights from '@/components/CareerHighlights'
 import ByTheNumbers from '@/components/ByTheNumbers'
+import Testimonials from '@/components/Testimonials'
 import Footer from '@/components/Footer'
 
 export default function Page() {
@@ -16,6 +17,7 @@ export default function Page() {
         <AboutMe />
         <CareerHighlights />
         <ByTheNumbers />
+        <Testimonials />
       </main>
       <Footer />
     </div>

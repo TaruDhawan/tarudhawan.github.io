@@ -1,3 +1,7 @@
+'use client'
+
+import { useState, useEffect, useRef } from 'react'
+
 const stats = [
   { label: 'COGS Portfolio', value: '$400M', desc: 'Governed across Office Product Group' },
   { label: 'Direct Savings Delivered', value: '$40M', desc: 'Cost reinvested toward user-facing innovation' },
@@ -25,9 +29,80 @@ const s = {
   quote: { fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: '1.25rem', fontStyle: 'italic', color: 'var(--primary)', lineHeight: 1.6 },
 }
 
-export default function ByTheNumbers() {
+/* ── Ease-out cubic ────────────────────────────────────────── */
+function easeOutCubic(t) {
+  return 1 - Math.pow(1 - t, 3)
+}
+
+/* ── Parse "$400M" → { prefix: "$", num: 400, suffix: "M" } ── */
+function parseValue(str) {
+  const m = str.match(/^(\$?)(\d+)(.*)$/)
+  if (!m) return { prefix: '', num: 0, suffix: str }
+  return { prefix: m[1], num: parseInt(m[2], 10), suffix: m[3] }
+}
+
+/* ── Animated number ───────────────────────────────────────── */
+function CountUp({ value, style, started, delay = 0 }) {
+  const { prefix, num, suffix } = parseValue(value)
+  const [count, setCount] = useState(0)
+  const rafRef = useRef(null)
+  const DURATION = 1800
+
+  useEffect(() => {
+    if (!started) return
+
+    // Respect prefers-reduced-motion — snap straight to final value
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setCount(num)
+      return
+    }
+
+    const timer = setTimeout(() => {
+      const startTime = performance.now()
+
+      const tick = (now) => {
+        const progress = Math.min((now - startTime) / DURATION, 1)
+        setCount(Math.round(easeOutCubic(progress) * num))
+        if (progress < 1) rafRef.current = requestAnimationFrame(tick)
+      }
+
+      rafRef.current = requestAnimationFrame(tick)
+    }, delay)
+
+    return () => {
+      clearTimeout(timer)
+      cancelAnimationFrame(rafRef.current)
+    }
+  }, [started, num, delay])
+
   return (
-    <section id="by-the-numbers" style={s.section}>
+    <p style={style} aria-label={value}>
+      {prefix}{count}{suffix}
+    </p>
+  )
+}
+
+/* ── Section ───────────────────────────────────────────────── */
+export default function ByTheNumbers() {
+  const [started, setStarted] = useState(false)
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStarted(true)
+          observer.disconnect() // fire once only
+        }
+      },
+      { threshold: 0.15 }
+    )
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <section id="by-the-numbers" ref={sectionRef} style={s.section}>
       <div style={s.container}>
         <div style={s.headingRow}>
           <div style={s.bar} />
@@ -37,13 +112,20 @@ export default function ByTheNumbers() {
           {stats.map((stat, i) => (
             <div key={i} style={s.card}>
               <p style={s.statLabel}>{stat.label}</p>
-              <p style={s.statValue}>{stat.value}</p>
+              <CountUp
+                value={stat.value}
+                style={s.statValue}
+                started={started}
+                delay={i * 60} // 60ms stagger per card
+              />
               <p style={s.statDesc}>{stat.desc}</p>
             </div>
           ))}
         </div>
         <div style={s.quoteCard}>
-          <blockquote style={{ ...s.quote, margin: 0 }}>&ldquo;The best programs don&rsquo;t just deliver outcomes — they raise the bar for what&rsquo;s possible.&rdquo;</blockquote>
+          <blockquote style={{ ...s.quote, margin: 0 }}>
+            &ldquo;The best programs don&rsquo;t just deliver outcomes — they raise the bar for what&rsquo;s possible.&rdquo;
+          </blockquote>
         </div>
       </div>
     </section>

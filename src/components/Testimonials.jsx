@@ -65,6 +65,8 @@ const earlier = [
 function LinkedInIcon({ size = 16 }) {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       width={size}
       height={size}
       viewBox="0 0 24 24"
@@ -109,7 +111,7 @@ function FeaturedCard({ t, revealIndex = 0 }) {
       href={LINKEDIN_URL}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`Read ${t.name}'s LinkedIn endorsement of Taru Dhawan`}
+      aria-label={`Read ${t.name}'s LinkedIn endorsement of Taru Dhawan (opens in a new tab)`}
       className="reveal-card"
       style={{
         display: 'flex',
@@ -153,7 +155,7 @@ function FeaturedCard({ t, revealIndex = 0 }) {
         fontWeight: 700,
         letterSpacing: '0.1em',
         textTransform: 'uppercase',
-        color: t.accent,
+        color: 'var(--primary)',
         marginBottom: '0.875rem',
         margin: '0 0 0.875rem',
       }}>
@@ -211,7 +213,7 @@ function EarlierCard({ t, revealIndex = 0 }) {
       href={LINKEDIN_URL}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`Read ${t.name}'s LinkedIn endorsement of Taru Dhawan`}
+      aria-label={`Read ${t.name}'s LinkedIn endorsement of Taru Dhawan (opens in a new tab)`}
       className="reveal-card"
       style={{
         display: 'flex',
@@ -337,6 +339,7 @@ export default function Testimonials() {
             href={LINKEDIN_URL}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="See all recommendations on LinkedIn (opens in a new tab)"
             style={{
               display: 'inline-flex',
               alignItems: 'center',

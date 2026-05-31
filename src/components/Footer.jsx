@@ -10,6 +10,8 @@ const EMAIL = 'taru.dhawan@gmail.com'
 function CalendarIcon() {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       width="18"
       height="18"
       viewBox="0 0 24 24"
@@ -32,6 +34,8 @@ function CalendarIcon() {
 function ChevronUpIcon() {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       width="16"
       height="16"
       viewBox="0 0 24 24"
@@ -97,6 +101,7 @@ export default function Footer() {
             href={CAL_COM_URL}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Book a 30-min intro call (opens in a new tab)"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -161,6 +166,7 @@ export default function Footer() {
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         aria-label="Back to top"
         title="Back to top"
+        tabIndex={showBackTop ? 0 : -1}
         style={{
           position: 'fixed',
           bottom: '1.75rem',

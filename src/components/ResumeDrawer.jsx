@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 
 const EMAIL = 'taru.dhawan@gmail.com'
@@ -11,10 +11,10 @@ const highlights = [
   'Automated rotation of 20,000+ certificates saving ~240,000 manual hours; drove 79% of Azure resources to a secure-by-default posture across 100+ services.',
 ]
 
-/* ── Icons ─────────────────────────────────────────────── */
+/* ── Icons (all aria-hidden — decorative only) ─────────────── */
 function FileIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
       <polyline points="14 2 14 8 20 8"/>
       <line x1="16" y1="13" x2="8" y2="13"/>
@@ -25,7 +25,7 @@ function FileIcon() {
 
 function DownloadIcon() {
   return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
       <polyline points="7 10 12 15 17 10"/>
       <line x1="12" y1="15" x2="12" y2="3"/>
@@ -35,7 +35,7 @@ function DownloadIcon() {
 
 function ExternalIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
       <polyline points="15 3 21 3 21 9"/>
       <line x1="10" y1="14" x2="21" y2="3"/>
@@ -45,7 +45,7 @@ function ExternalIcon() {
 
 function CopyIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
       <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
     </svg>
@@ -54,7 +54,7 @@ function CopyIcon() {
 
 function CheckIcon() {
   return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
       <polyline points="20 6 9 17 4 12"/>
     </svg>
   )
@@ -62,7 +62,7 @@ function CheckIcon() {
 
 function CloseIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <line x1="18" y1="6" x2="6" y2="18"/>
       <line x1="6" y1="6" x2="18" y2="18"/>
     </svg>
@@ -71,7 +71,7 @@ function CloseIcon() {
 
 function CalendarIcon() {
   return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" focusable="false" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
       <line x1="16" y1="2" x2="16" y2="6"/>
       <line x1="8" y1="2" x2="8" y2="6"/>
@@ -82,7 +82,7 @@ function CalendarIcon() {
 
 function SparkleIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
     </svg>
   )
@@ -136,27 +136,89 @@ function ActionBtn({ href, download, target, onClick, children }) {
   )
 }
 
+/* ── Focusable elements selector ────────────────────────── */
+const FOCUSABLE = 'button:not([disabled]), [href], input:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
 /* ── Main component ─────────────────────────────────────── */
 export default function ResumeDrawer() {
   const [isOpen, setIsOpen] = useState(false)
   const [copied, setCopied] = useState(false)
   const [mounted, setMounted] = useState(false)
 
+  const drawerRef   = useRef(null)
+  const lastFocusRef = useRef(null)  // element focused before drawer opened
+  const isOpenRef   = useRef(false)  // ref to avoid stale closure in keydown
+
   useEffect(() => { setMounted(true) }, [])
 
-  // Listen for open event dispatched by Hero button
+  /* ── Keep isOpenRef in sync ── */
   useEffect(() => {
-    const onOpen = () => setIsOpen(true)
+    isOpenRef.current = isOpen
+  }, [isOpen])
+
+  /* ── Listen for open event dispatched by Hero / mobile nav ── */
+  useEffect(() => {
+    const onOpen = () => {
+      lastFocusRef.current = document.activeElement  // save focus origin
+      setIsOpen(true)
+    }
     window.addEventListener('open-resume-drawer', onOpen)
     return () => window.removeEventListener('open-resume-drawer', onOpen)
   }, [])
 
+  /* ── Keyboard: Escape to close + Tab focus trap ── */
   useEffect(() => {
-    const onKey = (e) => { if (e.key === 'Escape') setIsOpen(false) }
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        setIsOpen(false)
+        return
+      }
+
+      if (!isOpenRef.current || e.key !== 'Tab' || !drawerRef.current) return
+
+      const focusable = Array.from(drawerRef.current.querySelectorAll(FOCUSABLE))
+      if (!focusable.length) return
+
+      const first = focusable[0]
+      const last  = focusable[focusable.length - 1]
+
+      if (e.shiftKey) {
+        if (document.activeElement === first) {
+          e.preventDefault()
+          last.focus()
+        }
+      } else {
+        if (document.activeElement === last) {
+          e.preventDefault()
+          first.focus()
+        }
+      }
+    }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [])
 
+  /* ── Focus management + inert when closed ── */
+  useEffect(() => {
+    const el = drawerRef.current
+    if (!el) return
+
+    if (isOpen) {
+      el.removeAttribute('inert')
+      // Move focus to first focusable element in drawer
+      const focusable = el.querySelectorAll(FOCUSABLE)
+      if (focusable.length) focusable[0].focus()
+    } else {
+      el.setAttribute('inert', '')
+      // Return focus to the element that opened the drawer
+      if (lastFocusRef.current && typeof lastFocusRef.current.focus === 'function') {
+        lastFocusRef.current.focus()
+        lastFocusRef.current = null
+      }
+    }
+  }, [isOpen])
+
+  /* ── Body scroll lock ── */
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -182,6 +244,7 @@ export default function ResumeDrawer() {
         <>
           {/* ── Backdrop ─────────────────────────────── */}
           <div
+            aria-hidden="true"
             onClick={() => setIsOpen(false)}
             style={{
               position: 'fixed',
@@ -196,6 +259,7 @@ export default function ResumeDrawer() {
 
           {/* ── Drawer panel ─────────────────────────── */}
           <div
+            ref={drawerRef}
             role="dialog"
             aria-modal="true"
             aria-label="Resume"
@@ -329,7 +393,7 @@ export default function ResumeDrawer() {
           <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
             {highlights.map((h, i) => (
               <li key={i} style={{ display: 'flex', gap: '0.625rem', alignItems: 'flex-start' }}>
-                <span style={{ color: 'var(--accent)', flexShrink: 0, marginTop: '0.3rem', fontSize: '0.5rem' }}>●</span>
+                <span aria-hidden="true" style={{ color: 'var(--accent)', flexShrink: 0, marginTop: '0.3rem', fontSize: '0.5rem' }}>●</span>
                 <span style={{ fontSize: '0.8125rem', color: 'var(--fg)', lineHeight: 1.65 }}>{h}</span>
               </li>
             ))}
@@ -346,7 +410,7 @@ export default function ResumeDrawer() {
               fontWeight: 600,
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
-              color: 'var(--accent)',
+              color: 'var(--accent-text)',
               marginBottom: '0.375rem',
             }}>
               Resume Preview
@@ -376,7 +440,7 @@ export default function ResumeDrawer() {
           <div style={{ backgroundColor: '#f8f8f8', padding: '1rem', overflowY: 'auto' }}>
             <img
               src="/taru-resume-preview.png"
-              alt="Taru Dhawan resume preview"
+              alt="Taru Dhawan resume preview — first page of PDF"
               style={{
                 display: 'block',
                 margin: '0 auto',

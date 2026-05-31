@@ -6,6 +6,8 @@ const CAL_COM_URL = 'https://cal.com/'
 function ArrowRightIcon() {
   return (
     <svg
+      aria-hidden="true"
+      focusable="false"
       width="16"
       height="16"
       viewBox="0 0 24 24"
@@ -35,6 +37,8 @@ function TargetIcon() {
       flexShrink: 0,
     }}>
       <svg
+        aria-hidden="true"
+        focusable="false"
         width="16"
         height="16"
         viewBox="0 0 24 24"
@@ -80,7 +84,7 @@ export default function OpenTo() {
             fontWeight: 700,
             letterSpacing: '0.12em',
             textTransform: 'uppercase',
-            color: 'var(--accent)',
+            color: 'var(--accent-text)',
             marginBottom: '0.3rem',
           }}>
             What I&rsquo;m looking for
@@ -104,6 +108,7 @@ export default function OpenTo() {
           href={CAL_COM_URL}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Let's talk — book a call (opens in a new tab)"
           style={{
             display: 'inline-flex',
             alignItems: 'center',

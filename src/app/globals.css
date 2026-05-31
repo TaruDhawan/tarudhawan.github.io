@@ -12,7 +12,8 @@
   --muted:          #f5f0e8;
   --muted-light:    rgba(245,240,232,0.3);
   --muted-tile:     rgba(245,240,232,0.5);
-  --muted-fg:       #8c7b6b;
+  --muted-fg:       #786a5c;
+  --accent-text:    #8a6829;
   --card:           #fffdfb;
   --border:         #e8e0d5;
   --border-alpha:   rgba(232,224,213,0.5);
@@ -37,6 +38,7 @@
   --muted-light:    rgba(35,29,23,0.6);
   --muted-tile:     rgba(35,29,23,0.8);
   --muted-fg:       #8a7a6c;
+  --accent-text:    #c9973a;
   --card:           #241e18;
   --border:         #3a2e24;
   --border-alpha:   rgba(58,46,36,0.6);

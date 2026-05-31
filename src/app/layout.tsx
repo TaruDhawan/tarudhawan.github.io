@@ -54,7 +54,6 @@ export const metadata: Metadata = {
     title: 'Taru Dhawan — Principal TPM · Microsoft',
     description:
       'Principal TPM governing a $400M COGS portfolio, shipping AI systems that reduced on-call effort by 90%, and raising the bar across Microsoft AI & Office Product Group.',
-    creator: '@tarudhawan',
   },
   robots: {
     index: true,
@@ -81,9 +80,40 @@ export const viewport: Viewport = {
   ],
 }
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Taru Dhawan',
+  jobTitle: 'Principal Technical Program Manager',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Microsoft',
+    url: 'https://www.microsoft.com',
+  },
+  url: siteUrl,
+  sameAs: ['https://www.linkedin.com/in/tarudhawan/'],
+  description:
+    'Principal TPM at Microsoft governing a $400M COGS portfolio and shipping org-wide AI systems across Office Product Group.',
+  knowsAbout: [
+    'Technical Program Management',
+    'AI Infrastructure',
+    'Cloud Cost Governance',
+    'Agile Transformation',
+  ],
+  alumniOf: [
+    { '@type': 'Organization', name: 'Adidas' },
+  ],
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body>
         <a href="#main-content" className="skip-link">Skip to main content</a>
         {children}
